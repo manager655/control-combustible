@@ -1,0 +1,29 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Control Combustible</title>
+</head>
+<body>
+  <h1>Registro de compra</h1>
+  <form method="post" action="/registrar">
+    <label>Carnet:</label><input type="text" name="carnet" required><br>
+    <label>Nombre:</label><input type="text" name="nombre" required><br>
+    <label>Chasis/Placa:</label><input type="text" name="chasis" required><br>
+    <label>Tipo:</label>
+    <select name="tipo">
+      <option value="Motocicleta">Motocicleta</option>
+      <option value="Automóvil">Automóvil</option>
+    </select><br>
+    <button type="submit">Registrar</button>
+  </form>
+  <hr>
+  <h2>Compras registradas:</h2>
+  <ul>
+    {% for c in compras %}
+      <li>{{ c.fecha }} - {{ c.nombre }} - {{ c.tipo }} - {{ c.chasis }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
